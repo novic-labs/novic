@@ -1,0 +1,73 @@
+version: "3"
+
+services:
+  novicdnode0:
+    container_name: novicdnode0
+    image: "novicd/node"
+    ports:
+      - "26657:26657"
+      - "8545:8545"
+      - "8546:8546"
+      - "8125:8125"
+    environment:
+      - ID=0
+      - LOG=${LOG:-novicd.log}
+    volumes:
+      - ./localnet-setup/node0/novicd:/novic:Z
+    networks:
+      - localnet
+    entrypoint: "bash start-docker.sh"
+
+  novicdnode1:
+    container_name: novicdnode1
+    image: "novicd/node"
+    ports:
+      - "26658:26657"
+      - "8555:8545"
+      - "8556:8546"
+      - "8126:8125"
+    environment:
+      - ID=1
+      - LOG=${LOG:-novicd.log}
+    volumes:
+      - ./localnet-setup/node1/novicd:/novic:Z
+    networks:
+      - localnet
+    entrypoint: "bash start-docker.sh"
+
+  novicdnode2:
+    container_name: novicdnode2
+    image: "novicd/node"
+    environment:
+      - ID=2
+      - LOG=${LOG:-novicd.log}
+    ports:
+      - "26659:26657"
+      - "8565:8545"
+      - "8566:8546"
+      - "8127:8125"
+    volumes:
+      - ./localnet-setup/node2/novicd:/novic:Z
+    networks:
+      - localnet
+    entrypoint: "bash start-docker.sh"
+
+  novicdnode3:
+    container_name: novicdnode3
+    image: "novicd/node"
+    environment:
+      - ID=3
+      - LOG=${LOG:-novicd.log}
+    ports:
+      - "26660:26657"
+      - "8575:8545"
+      - "8576:8546"
+      - "8128:8125"
+    volumes:
+      - ./localnet-setup/node3/novicd:/novic:Z
+    networks:
+      - localnet
+    entrypoint: "bash start-docker.sh"
+
+networks:
+  localnet:
