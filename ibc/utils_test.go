@@ -15,7 +15,7 @@ import (
 
 func init() {
 	cfg := sdk.GetConfig()
-	cfg.SetBech32PrefixForAccount("plq", "plqpub")
+	cfg.SetBech32PrefixForAccount("novic", "novicpub")
 }
 
 func TestGetTransferSenderRecipient(t *testing.T) {
@@ -56,7 +56,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1",
-						Receiver: "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Amount:   "123456",
 					},
 				),
@@ -70,7 +70,7 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "plq1",
+						Receiver: "novic1",
 						Amount:   "123456",
 					},
 				),
@@ -79,48 +79,48 @@ func TestGetTransferSenderRecipient(t *testing.T) {
 			true,
 		},
 		{
-			"valid - cosmos sender, plq recipient",
+			"valid - cosmos sender, novic recipient",
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Amount:   "123456",
 					},
 				),
 			},
-			"plq1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
-			"plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			"novic1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
+			"novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 			false,
 		},
 		{
-			"valid - plq sender, cosmos recipient",
+			"valid - novic sender, cosmos recipient",
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
-						Sender:   "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Sender:   "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Receiver: "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
 						Amount:   "123456",
 					},
 				),
 			},
-			"plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
-			"plq1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
+			"novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			"novic1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
 			false,
 		},
 		{
-			"valid - osmosis sender, plq recipient",
+			"valid - osmosis sender, novic recipient",
 			channeltypes.Packet{
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "osmo1qql8ag4cluz6r4dz28p3w00dnc9w8ueuhnecd2",
-						Receiver: "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Amount:   "123456",
 					},
 				),
 			},
-			"plq1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
-			"plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+			"novic1qql8ag4cluz6r4dz28p3w00dnc9w8ueuafmxps",
+			"novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 			false,
 		},
 	}
@@ -164,7 +164,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Amount:   "",
 					},
 				),
@@ -178,7 +178,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Amount:   "test",
 					},
 				),
@@ -192,7 +192,7 @@ func TestGetTransferAmount(t *testing.T) {
 				Data: transfertypes.ModuleCdc.MustMarshalJSON(
 					&transfertypes.FungibleTokenPacketData{
 						Sender:   "cosmos1qql8ag4cluz6r4dz28p3w00dnc9w8ueulg2gmc",
-						Receiver: "plq1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
+						Receiver: "novic1x2w87cvt5mqjncav4lxy8yfreynn273xn5335v",
 						Amount:   "10000",
 					},
 				),

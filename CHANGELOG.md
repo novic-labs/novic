@@ -141,7 +141,7 @@ Important: Please upgrade your binary BEFORE block 7.516.700 to this release.
 * fix(rpc): fix gRPC query failure on legacy blocks (#1354)
 * build(deps): bump actions/stale from 5 to 6 (#1357)
 * imp(rpc,server): concurrent gRPC queries (#1352)
-* imp: add export functions for staked & liquid PLQ
+* imp: add export functions for staked & liquid NOVIC
 
 ## [v1.0.7]
 * fix: barberry via cosmos-sdk v0.46.3 backport

@@ -17,7 +17,7 @@ import (
 
 func init() {
 	cfg := sdk.GetConfig()
-	cfg.SetBech32PrefixForAccount("plq", "plqspub")
+	cfg.SetBech32PrefixForAccount("novic", "novicspub")
 }
 
 func TestIsSupportedKeys(t *testing.T) {
