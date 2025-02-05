@@ -9,7 +9,7 @@ import (
 func BeginBlockForks(ctx sdk.Context, app *NovicApp, baseApp baseapp.BaseApp) {
 	for _, fork := range Forks {
 		switch ctx.ChainID() {
-		case "novic_7070-2":
+		case "novic_70009-2":
 			if ctx.BlockHeight() == fork.UpgradeHeight {
 				fork.BeginForkLogic(ctx, &app.AppKeepers, &baseApp)
 				return

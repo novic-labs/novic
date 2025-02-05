@@ -83,11 +83,11 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 
 			// Set default seeds
 			seeds := []string{
-				"dd2f0ceaa0b21491ecae17413b242d69916550ae@135.125.247.70:26656", // Novic Foundation EU-FR
-				"0525de7e7640008d2a2e01d1a7f6456f28f3324c@51.79.142.6:26656",    // Novic Foundation SG
-				"21432722b67540f6b366806dff295849738d7865@139.99.223.241:26656", // Novic Foundation AU
-				"7c10b1a106a512976e8d71effe5c086327458eef@35.200.183.35:26656",  // Novic Foundation IN
-				"56f473a809cb87eaee37d9346a006e0b13077c50@51.195.63.229:26656",  // Novic Foundation EU-DE
+				//	"dd2f0ceaa0b21491ecae17413b242d69916550ae@135.125.247.70:26656", // Novic Labs 1
+				//	"0525de7e7640008d2a2e01d1a7f6456f28f3324c@51.79.142.6:26656",    // Novic Labs 2
+				//	"21432722b67540f6b366806dff295849738d7865@139.99.223.241:26656", // Novic Labs 3
+				//	"7c10b1a106a512976e8d71effe5c086327458eef@35.200.183.35:26656",  // Novic Labs 4
+				//	"56f473a809cb87eaee37d9346a006e0b13077c50@51.195.63.229:26656",  // Novic Labs 5
 			}
 			config.P2P.Seeds = strings.Join(seeds, ",")
 
@@ -98,7 +98,7 @@ func InitCmd(mbm module.BasicManager, defaultNodeHome string) *cobra.Command {
 
 			chainID, _ := cmd.Flags().GetString(flags.FlagChainID)
 			if chainID == "" {
-				chainID = fmt.Sprintf("novic_7070-%v", tmrand.Str(6))
+				chainID = fmt.Sprintf("novic_70009-%v", tmrand.Str(6))
 			}
 
 			// Get bip39 mnemonic

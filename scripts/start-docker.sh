@@ -1,7 +1,7 @@
 #!/bin/bash
 
 KEY="dev0"
-CHAINID="novic_7070-1"
+CHAINID="novic_70009-1"
 MONIKER="mymoniker"
 DATA_DIR=$(mktemp -d -t novic-datadir.XXXXX)
 

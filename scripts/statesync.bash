@@ -31,7 +31,7 @@ go install ./...
 # go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=boltdb' -tags boltdb ./...
 
 # Initialize chain.
-novicd init test --chain-id novic_7070-1
+novicd init test --chain-id novic_70009-1
 
 # Get Genesis
 wget https://raw.githubusercontent.com/novic-labs/networks/main/mainnet/genesis.json

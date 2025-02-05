@@ -1,8 +1,10 @@
 #!/bin/bash
 
 KEY="mykey"
-CHAINID="novic_7000-1"
-MONIKER="localtestnet"
+KEY2="mykey2"
+KEY3="mykey3"
+CHAINID="novic_70009-1"
+MONIKER="novictestnet"
 KEYRING="test"
 KEYALGO="eth_secp256k1"
 LOGLEVEL="info"
@@ -24,6 +26,10 @@ novicd config chain-id $CHAINID
 # if $KEY exists it should be deleted
 novicd keys add $KEY --keyring-backend $KEYRING --algo $KEYALGO
 
+novicd keys add $KEY2 --keyring-backend $KEYRING --algo $KEYALGO
+
+novicd keys add $KEY3 --keyring-backend $KEYRING --algo $KEYALGO
+
 # Set moniker and chain-id for Ethermint (Moniker can be anything, chain-id must be an integer)
 novicd init $MONIKER --chain-id $CHAINID
 
@@ -32,6 +38,7 @@ cat $HOME/.novicd/config/genesis.json | jq '.app_state["staking"]["params"]["bon
 cat $HOME/.novicd/config/genesis.json | jq '.app_state["crisis"]["constant_fee"]["denom"]="anovic"' > $HOME/.novicd/config/tmp_genesis.json && mv $HOME/.novicd/config/tmp_genesis.json $HOME/.novicd/config/genesis.json
 cat $HOME/.novicd/config/genesis.json | jq '.app_state["gov"]["deposit_params"]["min_deposit"][0]["denom"]="anovic"' > $HOME/.novicd/config/tmp_genesis.json && mv $HOME/.novicd/config/tmp_genesis.json $HOME/.novicd/config/genesis.json
 cat $HOME/.novicd/config/genesis.json | jq '.app_state["mint"]["params"]["mint_denom"]="anovic"' > $HOME/.novicd/config/tmp_genesis.json && mv $HOME/.novicd/config/tmp_genesis.json $HOME/.novicd/config/genesis.json
+cat $HOME/.novicd/config/genesis.json | jq '.app_state["gov"]["params"]["min_deposit"][0]["denom"]="anovic"' > $HOME/.novicd/config/tmp_genesis.json && mv $HOME/.novicd/config/tmp_genesis.json $HOME/.novicd/config/genesis.json
 
 # Set gas limit in genesis
 cat $HOME/.novicd/config/genesis.json | jq '.consensus_params["block"]["max_gas"]="10000000"' > $HOME/.novicd/config/tmp_genesis.json && mv $HOME/.novicd/config/tmp_genesis.json $HOME/.novicd/config/genesis.json
@@ -69,6 +76,10 @@ fi
 
 # Allocate genesis accounts (cosmos formatted addresses)
 novicd add-genesis-account $KEY 100000000000000000000000000anovic --keyring-backend $KEYRING
+
+novicd add-genesis-account $KEY2 100000000000000000000000000000anovic --keyring-backend $KEYRING
+
+novicd add-genesis-account $KEY3 100000000000000000000000000000anovic --keyring-backend $KEYRING
 
 # Sign genesis transaction
 novicd gentx $KEY 1000000000000000000000anovic --keyring-backend $KEYRING --chain-id $CHAINID

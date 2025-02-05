@@ -30,7 +30,7 @@ const (
 	// BaseDenom defines to the default denomination used in Novic (staking, EVM, governance, etc.)
 	BaseDenom = "anovic"
 
-	ChainId = "novic_7070"
+	ChainId = "novic_70009"
 )
 
 // SetBech32Prefixes sets the global prefixes to be used when serializing addresses and public keys to Bech32 strings.

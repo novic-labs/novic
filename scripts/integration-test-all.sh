@@ -17,7 +17,7 @@ RPC_PORT="854"
 IP_ADDR="0.0.0.0"
 
 KEY="dev0"
-CHAINID="novic_7070-1"
+CHAINID="novic_70009-1"
 MONIKER="mymoniker"
 
 ## default port prefixes for novicd
